@@ -3,7 +3,7 @@ const router = express.Router();
 const { supabase, supabaseAdmin } = require('../supabaseClient');
 
 const ADMIN_KULLANICI = process.env.ADMIN_KULLANICI || 'camel';
-const ADMIN_SIFRE = process.env.ADMIN_SIFRE || 'camel2026_72392dcpaser_admin_K9#mP2!v42GnjL7';
+const ADMIN_SIFRE = process.env.ADMIN_SIFRE || '';
 
 const girisDenemeleri = {};
 const adminLoglari = [];
@@ -37,7 +37,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ hata: true, mesaj: 'Hatali admin bilgileri.' });
     }
 
-    if (password !== ADMIN_SIFRE) {
+    if (password !== ADMIN_SIFRE || !ADMIN_SIFRE) {
       if (!girisDenemeleri[ip]) {
         girisDenemeleri[ip] = { count: 0, banUntil: null };
       }
