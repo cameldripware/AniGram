@@ -2,7 +2,15 @@ const { supabaseAdmin } = require('./supabaseClient');
 const https = require('https');
 const http = require('http');
 
-const YOUTUBE_API_KEY = 'AIzaSyDXc7KExaHq3_bi-AmxBUhdxUbsSh24aAs';
+// 🔒 API KEY - ENVIRONMENT VARIABLES'DAN AL
+// ASLA hardcode etme!
+if (!process.env.YOUTUBE_API_KEY) {
+  console.error('❌ HATA: YOUTUBE_API_KEY .env dosyasında tanımlanmamış!');
+  console.error('Lütfen .env dosyasına ekleyin: YOUTUBE_API_KEY=your_key');
+  process.exit(1);
+}
+
+const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 
 const CONFIG = {
   FETCH_INTERVAL_MS: 30000,
@@ -77,7 +85,8 @@ async function getBotUserId() {
     const { data: existingBot } = await supabaseAdmin.from('users').select('id').eq('username', 'anigram_bot').single();
     if (existingBot) { cachedBotUserId = existingBot.id; return existingBot.id; }
     const botEmail = 'bot@anigram.internal';
-    const botPassword = 'AniGramBot_Secure_' + Math.random().toString(36);
+    // 🔒 Güvenli random password generator
+    const botPassword = 'AniGramBot_' + require('crypto').randomBytes(16).toString('hex');
     const { data: authData, error: authError } = await supabaseAdmin.auth.admin.createUser({
       email: botEmail, password: botPassword, email_confirm: true,
       user_metadata: { username: 'anigram_bot', name: 'AniGram Bot' }

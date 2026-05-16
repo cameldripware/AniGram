@@ -1,257 +1,99 @@
-/* ============================================
-   ANIGRAM GLOBAL STILLERI
-   Tema: Gece Yarisi (Koyu mavi, neon mavi, mor tonlar)
-   Font: Nunito (Google Fonts'tan)
-   ============================================ */
-
-/* Google Fonts'tan Nunito fontunu ice aktar */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
-
-/* Tum elementler icin sifirlama ve temel ayarlar */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* CSS Degiskenleri - Tum sitede kullanilacak renkler ve degerler */
-:root {
-  /* Ana Renkler - Gece Yarisi Temasi */
-  --ana-renk: #0A0A1A; /* Cok koyu lacivert - ana arka plan */
-  --ikincil-renk: #12122A; /* Hafif acik lacivert - kart arka planlari */
-  --ucuncu-renk: #1A1A3E; /* Daha acik lacivert - hover durumlari */
-  
-  /* Vurgu Renkleri */
-  --vurgu-renk: #00D4FF; /* Neon mavi - butonlar, linkler, aktif ogeler */
-  --vurgu-renk-hover: #00B8E6; /* Neon mavinin koyusu - hover durumu */
-  --mor-vurgu: #8B5CF6; /* Mor tonu - bildirimler, ozel alanlar */
-  --mor-vurgu-hover: #7C3AED; /* Morun koyusu - hover durumu */
-  
-  /* Metin Renkleri */
-  --metin-beyaz: #FFFFFF; /* Ana metin rengi */
-  --metin-gri: #A0A0B0; /* Ikincil metin rengi */
-  --metin-koyu-gri: #606070; /* Daha silik metin */
-  
-  /* Durum Renkleri */
-  --begeni-kirmizi: #FF4757; /* Begeni kalbi rengi */
-  --basarili-yesil: #2ED573; /* Basari mesajlari */
-  --uyari-sari: #FFA502; /* Uyari mesajlari */
-  --hata-kirmizi: #FF4757; /* Hata mesajlari */
-  
-  /* Olcu ve Bosluklar */
-  --kenar-boslugu: 16px; /* Mobil kenar boslugu */
-  --kart-yuvarlaklik: 12px; /* Kart kose yuvarlakligi */
-  --buton-yuvarlaklik: 8px; /* Buton kose yuvarlakligi */
-  
-  /* Golgeler */
-  --hafif-golge: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --orta-golge: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --agir-golge: 0 8px 32px rgba(0, 0, 0, 0.5);
-  
-  /* Neon Isilti Efektleri */
-  --neon-isilti: 0 0 10px rgba(0, 212, 255, 0.5);
-  --mor-isilti: 0 0 10px rgba(139, 92, 246, 0.5);
-  
-  /* Gecis Animasyonlari */
-  --hizli-gecis: 0.15s ease;
-  --normal-gecis: 0.3s ease;
-  --yavas-gecis: 0.5s ease;
-}
-
-/* HTML ve Body temel stilleri */
-html {
-  font-size: 16px; /* 1rem = 16px */
-  scroll-behavior: smooth; /* Yumusak kaydirma */
-}
-
 body {
-  font-family: 'Nunito', sans-serif; /* Ana font */
-  background-color: var(--ana-renk); /* Koyu lacivert arka plan */
-  color: var(--metin-beyaz); /* Beyaz metin */
-  line-height: 1.6; /* Satir yuksekligi */
-  min-height: 100vh; /* En az ekran yuksekligi */
-  overflow-x: hidden; /* Yatay kaydirmayi engelle */
-  -webkit-font-smoothing: antialiased; /* Daha net font (Mac/iPhone) */
-  -moz-osx-font-smoothing: grayscale; /* Daha net font (Mac Firefox) */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-/* Kaydirma cubugu ozellestirme */
-::-webkit-scrollbar {
-  width: 8px; /* Kaydirma cubugu genisligi */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--ana-renk); /* Kaydirma cubugu arka plani */
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--ucuncu-renk); /* Kaydirma cubugu rengi */
-  border-radius: 4px; /* Yuvarlak koseler */
+.App-header {
+  color: white;
+  padding: 40px 0;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--vurgu-renk); /* Hover'da neon mavi olur */
+.App-header h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
 }
 
-/* Link stilleri */
-a {
-  color: var(--vurgu-renk);
-  text-decoration: none; /* Alt cizgiyi kaldir */
-  transition: color var(--hizli-gecis);
+.App-header p {
+  font-size: 1.2em;
+  opacity: 0.9;
 }
 
-a:hover {
-  color: var(--vurgu-renk-hover);
+main {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Resim stilleri */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.welcome {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Buton temel stilleri */
-button {
-  cursor: pointer;
-  font-family: 'Nunito', sans-serif;
+.welcome h2 {
+  color: #667eea;
+  margin-bottom: 15px;
+  font-size: 2em;
+}
+
+.welcome p {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1.1em;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 12px 30px;
+  margin: 10px;
+  font-size: 1em;
   border: none;
-  outline: none;
-  transition: all var(--hizli-gecis);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Input ve textarea temel stilleri */
-input, textarea, select {
-  font-family: 'Nunito', sans-serif;
-  background-color: var(--ikincil-renk);
-  color: var(--metin-beyaz);
-  border: 1px solid var(--ucuncu-renk);
-  border-radius: var(--buton-yuvarlaklik);
-  padding: 10px 14px;
-  font-size: 14px;
-  outline: none;
-  transition: border-color var(--hizli-gecis);
+.btn-primary {
+  background-color: #667eea;
+  color: white;
 }
 
-input:focus, textarea:focus, select:focus {
-  border-color: var(--vurgu-renk);
-  box-shadow: var(--neon-isilti);
+.btn-primary:hover {
+  background-color: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
-/* Placeholder rengi */
-::placeholder {
-  color: var(--metin-koyu-gri);
+.btn-secondary {
+  background-color: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
 }
 
-/* Secim rengi */
-::selection {
-  background-color: var(--vurgu-renk);
-  color: var(--ana-renk);
-}
-
-/* Mobil uyumlu container */
-.container {
-  max-width: 935px; /* Instagram benzeri maksimum genislik */
-  margin: 0 auto; /* Ortala */
-  padding: 0 var(--kenar-boslugu);
-}
-
-/* Sayfa gecis animasyonlari */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideOutToRight {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-
-/* Sayfa animasyon siniflari */
-.page-enter {
-  animation: fadeIn var(--normal-gecis) ease-out;
-}
-
-.page-exit {
-  animation: fadeOut var(--normal-gecis) ease-in;
-}
-
-/* Neon isilti efekti */
-.neon-glow {
-  box-shadow: var(--neon-isilti);
-}
-
-.neon-glow-mor {
-  box-shadow: var(--mor-isilti);
-}
-
-/* Yukleniyor spinner (anime temali - shuriken) */
-@keyframes spinShuriken {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid var(--ucuncu-renk);
-  border-top: 3px solid var(--vurgu-renk);
-  border-radius: 50%;
-  animation: spinShuriken 1s linear infinite;
-  margin: 20px auto;
-}
-
-/* Responsive ayarlar */
-@media (max-width: 768px) {
-  :root {
-    --kenar-boslugu: 12px;
-  }
-  
-  html {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  :root {
-    --kenar-boslugu: 8px;
-  }
-  
-  html {
-    font-size: 14px;
-  }
+.btn-secondary:hover {
+  background-color: #667eea;
+  color: white;
+  transform: translateY(-2px);
 }
