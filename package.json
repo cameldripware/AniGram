@@ -1,0 +1,18 @@
+{
+  "name": "anigram",
+  "version": "1.0.0",
+  "description": "Anime Sosyal Medya Platformu",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "start": "echo 'Run backend and frontend separately'",
+    "dev": "echo 'Use npm start in backend and frontend directories'"
+  },
+  "keywords": [
+    "anime",
+    "sosyal medya",
+    "platform"
+  ],
+  "author": "cameldripware",
+  "license": "MIT"
+}
