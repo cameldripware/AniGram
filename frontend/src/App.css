@@ -1,0 +1,445 @@
+/* ============================================
+   ANIGRAM ANA UYGULAMA STILLERI
+   Layout, sayfa yapisi, genel bilesen stilleri
+   ============================================ */
+
+/* Ana uygulama kapsayicisi */
+.app {
+  min-height: 100vh;
+  background-color: var(--ana-renk);
+}
+
+/* ============================================
+   YUKLENIYOR EKRANI
+   ============================================ */
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--ana-renk);
+}
+
+.loading-content {
+  text-align: center;
+  animation: fadeIn var(--normal-gecis) ease-out;
+}
+
+.loading-text {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--vurgu-renk);
+  letter-spacing: 2px;
+}
+
+/* ============================================
+   AUTH LAYOUT (Giris ve Kayit sayfalari)
+   ============================================ */
+.auth-layout {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--ana-renk) 0%, var(--ikincil-renk) 50%, #0D0D2B 100%);
+  padding: 20px;
+}
+
+/* ============================================
+   ANA LAYOUT (Giris yapildiktan sonra)
+   ============================================ */
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Ana icerik alani */
+.main-content {
+  flex: 1;
+  margin-left: 0; /* Masaustunde navbar genisligi kadar bosluk olacak */
+  padding-bottom: 0; /* Mobilde alt navbar icin bosluk */
+  min-height: 100vh;
+  animation: fadeIn var(--normal-gecis) ease-out;
+}
+
+/* Masaustu gorunumu */
+@media (min-width: 769px) {
+  .main-content {
+    margin-left: 240px; /* Yan navbar genisligi */
+    max-width: calc(100% - 240px);
+  }
+}
+
+/* Mobil gorunumu */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding-bottom: 60px; /* Alt navbar yuksekligi */
+    width: 100%;
+  }
+}
+
+/* ============================================
+   SAYFA GECIS ANIMASYONLARI
+   ============================================ */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-container {
+  animation: pageFadeIn 0.4s ease-out;
+  padding: 20px;
+  max-width: 935px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   GENEL KART STILI (Gonderi, profil, vs)
+   ============================================ */
+.card {
+  background-color: var(--ikincil-renk);
+  border-radius: var(--kart-yuvarlaklik);
+  box-shadow: var(--hafif-golge);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all var(--normal-gecis);
+}
+
+.card:hover {
+  box-shadow: var(--orta-golge);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   BUTON STILLERI
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--buton-yuvarlaklik);
+  font-weight: 600;
+  font-size: 14px;
+  transition: all var(--hizli-gecis);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: var(--vurgu-renk);
+  color: var(--ana-renk);
+}
+
+.btn-primary:hover {
+  background-color: var(--vurgu-renk-hover);
+  box-shadow: var(--neon-isilti);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--ucuncu-renk);
+  color: var(--metin-beyaz);
+}
+
+.btn-secondary:hover {
+  background-color: var(--vurgu-renk);
+  color: var(--ana-renk);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--vurgu-renk);
+  border: 1px solid var(--vurgu-renk);
+}
+
+.btn-outline:hover {
+  background-color: var(--vurgu-renk);
+  color: var(--ana-renk);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--metin-beyaz);
+}
+
+.btn-ghost:hover {
+  background-color: var(--ucuncu-renk);
+}
+
+.btn-danger {
+  background-color: var(--hata-kirmizi);
+  color: white;
+}
+
+.btn-danger:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 15px rgba(255, 71, 87, 0.5);
+}
+
+/* Buton boyut varyasyonlari */
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 16px;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ============================================
+   FORM ELEMANLARI
+   ============================================ */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--metin-gri);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: var(--ucuncu-renk);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--buton-yuvarlaklik);
+  color: var(--metin-beyaz);
+  font-size: 14px;
+  transition: all var(--hizli-gecis);
+}
+
+.form-input:focus {
+  border-color: var(--vurgu-renk);
+  box-shadow: var(--neon-isilti);
+  outline: none;
+}
+
+.form-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px 16px;
+  background-color: var(--ucuncu-renk);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--buton-yuvarlaklik);
+  color: var(--metin-beyaz);
+  font-size: 14px;
+  resize: vertical;
+  transition: all var(--hizli-gecis);
+}
+
+.form-textarea:focus {
+  border-color: var(--vurgu-renk);
+  box-shadow: var(--neon-isilti);
+  outline: none;
+}
+
+.form-error {
+  color: var(--hata-kirmizi);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* ============================================
+   AVATAR STILLERI
+   ============================================ */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--ucuncu-renk);
+}
+
+.avatar-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.avatar-lg {
+  width: 56px;
+  height: 56px;
+}
+
+.avatar-xl {
+  width: 80px;
+  height: 80px;
+}
+
+/* Hikaye halkasi efekti (anime temali) */
+.avatar-story {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--ana-renk), var(--ana-renk)) padding-box,
+              linear-gradient(135deg, var(--vurgu-renk), var(--mor-vurgu)) border-box;
+}
+
+.avatar-story-viewed {
+  border: 2px solid var(--metin-koyu-gri);
+}
+
+/* ============================================
+   MODAL (POPUP) STILLERI
+   ============================================ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background-color: var(--ikincil-renk);
+  border-radius: var(--kart-yuvarlaklik);
+  box-shadow: var(--agir-golge);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: pageFadeIn 0.3s ease-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--ucuncu-renk);
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--ucuncu-renk);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--metin-gri);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: color var(--hizli-gecis);
+}
+
+.modal-close:hover {
+  color: var(--metin-beyaz);
+}
+
+/* ============================================
+   BILDIRIM DOT'U
+   ============================================ */
+.notification-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--hata-kirmizi);
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(255, 71, 87, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE YARDIMCI SINIFLAR
+   ============================================ */
+.hide-mobile {
+  display: block;
+}
+
+.hide-desktop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+  
+  .hide-desktop {
+    display: block;
+  }
+}
+
+/* ============================================
+   BOS DURUM MESAJLARI
+   ============================================ */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--metin-koyu-gri);
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.empty-state-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.empty-state-subtext {
+  font-size: 14px;
+  margin-top: 8px;
+  opacity: 0.7;
+}/* Mevcut App.css'in sonuna ekle */
+.banli-ekran { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #08080F; padding: 20px; }
+.banli-icerik { text-align: center; max-width: 480px; }
+.banli-ikon { margin-bottom: 20px; }
+.banli-baslik { font-size: 24px; font-weight: 700; color: #FF4757; margin-bottom: 12px; font-family: 'JetBrains Mono', monospace; letter-spacing: 2px; }
+.banli-kalan { font-size: 14px; color: #FFA502; margin-bottom: 8px; font-family: 'JetBrains Mono', monospace; }
+.banli-sebep { font-size: 13px; color: #C0C0D0; margin-bottom: 16px; background: #0C0C16; border: 1px solid #2A0A0A; padding: 10px 16px; border-radius: 2px; }
+.banli-alt { font-size: 12px; color: #606070; margin-bottom: 20px; }
+.banli-buton { background: none; border: 1px solid #1A1A30; color: #808090; padding: 10px 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; cursor: pointer; border-radius: 2px; }
+.banli-buton:hover { color: #C0C0D0; border-color: #303050; }

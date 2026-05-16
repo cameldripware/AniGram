@@ -1,0 +1,196 @@
+/* ============================================
+   PREMIUM GİRİŞ SAYFASI STİLLERİ
+   Register ile aynı tema - Mor tonlar - Neon efektler
+   ============================================ */
+
+.login-page {
+  min-height: 100vh;
+  background: var(--ana-renk);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
+  animation: fadeSlideUp 0.6s ease-out;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-logo-section {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.login-logo {
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  display: inline-flex;
+  gap: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.login-subtitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--metin-beyaz);
+  margin-bottom: 6px;
+}
+
+.login-description {
+  font-size: 14px;
+  color: var(--metin-gri);
+}
+
+.login-card {
+  background-color: rgba(18, 18, 42, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 32px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4),
+              0 0 0 1px rgba(139, 92, 246, 0.1) inset,
+              0 0 60px rgba(0, 212, 255, 0.05);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-submit-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  border: none;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--vurgu-renk), var(--mor-vurgu));
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  margin-top: 8px;
+}
+
+.login-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.5),
+              0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+.login-submit-btn:active {
+  transform: translateY(0);
+}
+
+.login-submit-btn.loading {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.login-forgot-link {
+  color: var(--vurgu-renk);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login-forgot-link:hover {
+  color: var(--vurgu-renk-hover);
+  text-decoration: underline;
+}
+
+.login-divider {
+  margin: 20px 0;
+  position: relative;
+  text-align: center;
+}
+
+.login-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.login-divider span {
+  position: relative;
+  background-color: var(--ikincil-renk);
+  padding: 0 16px;
+  color: var(--metin-koyu-gri);
+  font-size: 13px;
+}
+
+.login-register-link {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  background: transparent;
+  color: var(--vurgu-renk);
+  border: 1.5px solid var(--vurgu-renk);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.login-register-link:hover {
+  background-color: rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.login-copyright {
+  text-align: center;
+  margin-top: 24px;
+  color: var(--metin-koyu-gri);
+  font-size: 12px;
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 20px 12px;
+    align-items: flex-start;
+  }
+  
+  .login-card {
+    padding: 24px 20px;
+  }
+  
+  .login-logo {
+    font-size: 38px;
+  }
+}

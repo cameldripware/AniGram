@@ -1,0 +1,728 @@
+/* ══════════════════════════════════════════════════════════
+   FEED — Ana Sayfa Stilleri
+   ══════════════════════════════════════════════════════════ */
+
+.feed-sayfa {
+  min-height: 100vh;
+  background-color: var(--ana-renk);
+}
+
+.feed-duzen {
+  display: flex;
+  max-width: 630px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+.feed-ana {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Yükleniyor ─────────────────────────────────────────── */
+.feed-yukleniyor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  gap: 16px;
+  color: var(--metin-gri);
+}
+
+/* ── Boş durum ──────────────────────────────────────────── */
+.feed-bos {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: var(--ikincil-renk);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.feed-bos-ikon {
+  margin-bottom: 16px;
+  color: var(--metin-koyu-gri);
+}
+
+.feed-bos h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--metin-beyaz);
+  margin-bottom: 8px;
+}
+
+.feed-bos p {
+  font-size: 14px;
+  color: var(--metin-gri);
+}
+
+/* ── Gonderi listesi ────────────────────────────────────── */
+.gonderi-listesi {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gonderi-kart {
+  background-color: var(--ikincil-renk);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  animation: fadeSlideUp 0.3s ease-out;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Gonderi başlık ─────────────────────────────────────── */
+.gonderi-baslik {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.gonderi-kullanici-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Avatar ─────────────────────────────────────────────── */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatar-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--vurgu-renk), var(--mor-vurgu));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  font-size: 14px;
+}
+
+.gonderi-kullanici-bilgi {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.gonderi-kullanici-adi {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--metin-beyaz);
+}
+
+.gonderi-anime-etiket {
+  font-size: 11px;
+  color: var(--vurgu-renk);
+  font-weight: 600;
+}
+
+.gonderi-zaman {
+  font-size: 12px;
+  color: var(--metin-koyu-gri);
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+/* ── Medya container ────────────────────────────────────── */
+.gonderi-medya-kapsayici {
+  position: relative;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.gonderi-medya-gorsel {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  display: block;
+}
+
+.gonderi-medya-video {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  background: #000;
+  display: block;
+}
+
+/* ── Carousel ────────────────────────────────────────────── */
+.gonderi-carousel-noktalar {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.carousel-nokta {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.carousel-nokta.aktif {
+  background-color: var(--vurgu-renk);
+  width: 8px;
+  height: 8px;
+}
+
+.carousel-onceki-buton,
+.carousel-sonraki-buton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.carousel-onceki-buton { left: 10px;  }
+.carousel-sonraki-buton { right: 10px; }
+
+.carousel-onceki-buton:hover,
+.carousel-sonraki-buton:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-sayac {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  z-index: 3;
+}
+
+/* ── Video kapsayıcı ────────────────────────────────────── */
+.video-kapsayici {
+  position: relative;
+  width: 100%;
+  max-height: 500px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-kapsayici video {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+/* Tarayıcı native kontrolleri gizle */
+.video-kapsayici video::-webkit-media-controls,
+.video-kapsayici video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+/* Pause overlay: oynarken tıklayınca durdur */
+.video-pause-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Ortadaki play butonu */
+.video-ortala-buton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  cursor: pointer;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  animation: fadeIn 0.15s ease;
+}
+
+.video-ortala-buton:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1);   }
+}
+
+/* Progress bar */
+.video-ilerleme-cubugu {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 4;
+}
+
+.video-ilerleme-dolgu {
+  height: 100%;
+  background: var(--vurgu-renk);
+  transition: width 0.25s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Ses butonu */
+.video-ses-buton {
+  position: absolute;
+  bottom: 14px;
+  right: 50px;
+  z-index: 4;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  /* Her zaman görünür — kullanıcı ses kontrolünü bulsun */
+  opacity: 0.75;
+}
+
+.video-kapsayici:hover .video-ses-buton {
+  opacity: 1;
+}
+
+.video-ses-buton:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* Tam ekran butonu */
+.video-tam-ekran-buton {
+  position: absolute;
+  bottom: 14px;
+  right: 10px;
+  z-index: 4;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 0.75;
+}
+
+.video-kapsayici:hover .video-tam-ekran-buton {
+  opacity: 1;
+}
+
+.video-tam-ekran-buton:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* ── Aksiyonlar ─────────────────────────────────────────── */
+.gonderi-aksiyonlar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.gonderi-aksiyon-sol {
+  display: flex;
+  gap: 4px;
+}
+
+.gonderi-aksiyon-buton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  color: var(--metin-beyaz);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gonderi-aksiyon-buton:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: scale(1.1);
+}
+
+.gonderi-aksiyon-buton.begenildi {
+  color: #FF3040;
+  animation: kalpAtisi 0.4s ease;
+}
+
+@keyframes kalpAtisi {
+  0%   { transform: scale(1);   }
+  30%  { transform: scale(1.3); }
+  60%  { transform: scale(0.9); }
+  100% { transform: scale(1);   }
+}
+
+.gonderi-aksiyon-buton.kaydedildi {
+  color: var(--vurgu-renk);
+}
+
+/* ── Beğeni sayısı ──────────────────────────────────────── */
+.gonderi-begeni-sayisi {
+  padding: 0 16px 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--metin-beyaz);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.gonderi-begeni-sayisi:hover {
+  color: var(--vurgu-renk);
+  text-decoration: underline;
+}
+
+/* ── Açıklama ───────────────────────────────────────────── */
+.gonderi-aciklama {
+  padding: 0 16px 6px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.aciklama-kullanici-adi {
+  font-weight: 700;
+  color: var(--metin-beyaz);
+  text-decoration: none;
+  margin-right: 6px;
+}
+
+.aciklama-kullanici-adi:hover {
+  text-decoration: underline;
+}
+
+.aciklama-metin {
+  color: var(--metin-beyaz);
+}
+
+/* ── Yorumlar ───────────────────────────────────────────── */
+.gonderi-yorumlar {
+  padding: 0 16px 4px;
+}
+
+.yorum-oge {
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.yorum-kullanici-adi {
+  font-weight: 700;
+  color: var(--metin-beyaz);
+  text-decoration: none;
+  margin-right: 6px;
+}
+
+.yorum-kullanici-adi:hover {
+  text-decoration: underline;
+}
+
+.yorum-icerik {
+  color: var(--metin-beyaz);
+}
+
+.yorum-daha-fazla {
+  background: none;
+  border: none;
+  color: var(--metin-koyu-gri);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 2px 0;
+  margin-top: 2px;
+  transition: color 0.2s ease;
+}
+
+.yorum-daha-fazla:hover {
+  color: var(--metin-gri);
+}
+
+/* ── Yorum ekle ─────────────────────────────────────────── */
+.gonderi-yorum-ekle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.yorum-input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--metin-beyaz);
+  font-size: 13px;
+  font-family: inherit;
+  padding: 4px 0;
+  outline: none;
+}
+
+.yorum-input::placeholder {
+  color: var(--metin-koyu-gri);
+}
+
+.yorum-gonder-buton {
+  background: none;
+  border: none;
+  color: var(--vurgu-renk);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.yorum-gonder-buton:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Feed sonu ──────────────────────────────────────────── */
+.feed-son {
+  text-align: center;
+  padding: 20px;
+}
+
+.daha-fazla-yukleniyor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--metin-gri);
+  font-size: 14px;
+}
+
+.feed-son-mesaj {
+  color: var(--metin-koyu-gri);
+  font-size: 13px;
+}
+
+/* ── Spinnerlar ─────────────────────────────────────────── */
+.yukleniyor-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255, 255, 255, 0.08);
+  border-top: 3px solid var(--vurgu-renk);
+  border-radius: 50%;
+  animation: don 0.8s linear infinite;
+}
+
+.yukleniyor-spinner-kucuk {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid var(--vurgu-renk);
+  border-radius: 50%;
+  animation: don 0.6s linear infinite;
+}
+
+@keyframes don {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Beğenenler popup ───────────────────────────────────── */
+.begenen-popup-ortu {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.begenen-popup-kart {
+  background-color: var(--ikincil-renk);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  animation: modalUp 0.3s ease-out;
+}
+
+@keyframes modalUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+.begenen-popup-baslik {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.begenen-popup-baslik h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--metin-beyaz);
+}
+
+.begenen-popup-kapat {
+  background: none;
+  border: none;
+  color: var(--metin-gri);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.begenen-popup-kapat:hover {
+  color: var(--metin-beyaz);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.begenen-popup-icerik {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.begenen-popup-yukleniyor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 30px;
+  color: var(--metin-gri);
+}
+
+.begenen-popup-bos {
+  text-align: center;
+  padding: 30px;
+  color: var(--metin-koyu-gri);
+}
+
+.begenen-listesi {
+  display: flex;
+  flex-direction: column;
+}
+
+.begenen-oge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.begenen-oge:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.begenen-bilgi {
+  display: flex;
+  flex-direction: column;
+}
+
+.begenen-kullanici-adi {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--metin-beyaz);
+}
+
+.begenen-isim {
+  font-size: 12px;
+  color: var(--metin-koyu-gri);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .gonderi-kart {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .gonderi-medya-gorsel {
+    max-height: 400px;
+  }
+
+  .begenen-popup-kart {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+
+  .video-ortala-buton {
+    width: 52px;
+    height: 52px;
+  }
+}

@@ -1,0 +1,117 @@
+.kesfet-sayfa {
+  min-height: 100vh;
+  background-color: var(--ana-renk);
+  padding: 20px 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.kesfet-baslik {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.kesfet-baslik-yazi {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--metin-beyaz);
+}
+
+.kesfet-yakinda-kapsayici {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: var(--ikincil-renk);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  animation: fadeSlideUp 0.6s ease-out;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kesfet-yakinda-ikon {
+  color: var(--vurgu-renk);
+  margin-bottom: 24px;
+  animation: saatTikliyor 2s ease-in-out infinite;
+}
+
+@keyframes saatTikliyor {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.kesfet-yakinda-baslik {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--metin-beyaz);
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--vurgu-renk), var(--mor-vurgu));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.kesfet-yakinda-aciklama {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--metin-beyaz);
+  margin-bottom: 12px;
+}
+
+.kesfet-yakinda-alt-aciklama {
+  font-size: 14px;
+  color: var(--metin-gri);
+  max-width: 450px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.kesfet-yakinda-ayrac {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--vurgu-renk), var(--mor-vurgu), transparent);
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.kesfet-yakinda-tahmin {
+  font-size: 13px;
+  color: var(--metin-koyu-gri);
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .kesfet-yakinda-kapsayici {
+    min-height: 50vh;
+    padding: 30px 16px;
+  }
+
+  .kesfet-yakinda-baslik {
+    font-size: 24px;
+  }
+
+  .kesfet-yakinda-aciklama {
+    font-size: 16px;
+  }
+}

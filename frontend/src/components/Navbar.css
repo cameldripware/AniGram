@@ -1,0 +1,26 @@
+.sidebar-premium { position: fixed; top: 0; left: 0; width: 244px; height: 100vh; background-color: var(--ikincil-renk); border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; padding: 16px 10px; z-index: 100; overflow-y: auto; overflow-x: hidden; transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.sidebar-premium.daraltilmis { width: 68px; }
+.sidebar-logo-alan { display: flex; align-items: center; justify-content: space-between; padding: 14px 10px 20px; }
+.sidebar-logo-link { text-decoration: none; overflow: hidden; }
+.logo-text-gradient { font-size: 24px; font-weight: 900; letter-spacing: -0.5px; background: linear-gradient(135deg, var(--vurgu-renk), var(--mor-vurgu)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; white-space: nowrap; transition: font-size 0.3s ease; }
+.daraltilmis .logo-text-gradient { font-size: 20px; }
+.sidebar-daralt-buton { background: none; border: none; color: var(--metin-koyu-gri); cursor: pointer; padding: 4px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; flex-shrink: 0; }
+.sidebar-daralt-buton:hover { color: var(--metin-beyaz); background-color: rgba(255,255,255,0.05); }
+.sidebar-nav-premium { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.nav-link-premium { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: var(--metin-beyaz); font-weight: 500; font-size: 15px; transition: all 0.2s ease; position: relative; cursor: pointer; white-space: nowrap; overflow: hidden; }
+.nav-link-premium:hover { background-color: rgba(255,255,255,0.04); }
+.nav-link-premium.active { background-color: rgba(0,212,255,0.08); color: var(--vurgu-renk); font-weight: 700; }
+.nav-link-premium.active::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 3px; height: 22px; background: linear-gradient(180deg, var(--vurgu-renk), var(--mor-vurgu)); border-radius: 0 3px 3px 0; }
+.nav-icon-premium { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; flex-shrink: 0; color: inherit; position: relative; }
+.nav-icon-premium svg { width: 22px; height: 22px; flex-shrink: 0; }
+.nav-label-premium { color: inherit; transition: opacity 0.2s ease; }
+.daraltilmis .nav-label-premium { opacity: 0; width: 0; display: none; }
+.daraltilmis .nav-link-premium { justify-content: center; padding: 12px; gap: 0; }
+.nav-special { background: linear-gradient(135deg, var(--vurgu-renk), var(--mor-vurgu)); color: white !important; font-weight: 700; margin: 6px 0; box-shadow: 0 4px 14px rgba(0,212,255,0.25); }
+.nav-special:hover { box-shadow: 0 6px 22px rgba(0,212,255,0.4); transform: translateY(-1px); }
+.sidebar-bottom-premium { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; display: flex; flex-direction: column; gap: 2px; margin-top: auto; }
+.logout-btn-premium { background: none; border: none; width: 100%; cursor: pointer; font-family: 'Nunito', sans-serif; color: var(--metin-gri); font-size: 15px; display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 10px; transition: all 0.2s ease; white-space: nowrap; overflow: hidden; }
+.logout-btn-premium:hover { color: var(--hata-kirmizi); background-color: rgba(255,71,87,0.05); }
+.daraltilmis .logout-btn-premium { justify-content: center; padding: 12px; gap: 0; }
+.bildirim-sayisi-badge { position: absolute; top: -4px; right: -4px; background: #FF3040; color: white; font-size: 9px; font-weight: 800; min-width: 16px; height: 16px; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 0 4px; letter-spacing: 0; box-shadow: 0 0 6px rgba(255,48,64,0.5); }
+@media (max-width: 768px) { .sidebar-premium { display: none; } }

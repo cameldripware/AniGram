@@ -1,0 +1,32 @@
+.ayarlar-sayfa { min-height: 100vh; background: #08080F; font-family: 'JetBrains Mono', 'Nunito', monospace; color: #C0C0D0; }
+.ayarlar-header { text-align: center; padding: 30px 20px 20px; border-bottom: 1px solid #1A1A30; }
+.ayarlar-logo { font-size: 22px; font-weight: 800; letter-spacing: 4px; color: #C0C0D0; }
+.ayarlar-subtitle { font-size: 10px; letter-spacing: 3px; color: #606070; display: block; margin-top: 4px; }
+.ayarlar-kokpit { display: flex; max-width: 800px; margin: 0 auto; }
+.ayarlar-sidebar { width: 200px; background: #0C0C16; border-right: 1px solid #1A1A30; padding: 20px 10px; display: flex; flex-direction: column; gap: 4px; }
+.ayarlar-sekme { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: none; border: 1px solid transparent; color: #606070; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; border-radius: 2px; transition: all 0.2s; }
+.ayarlar-sekme:hover { background: #101020; color: #9090A0; }
+.ayarlar-sekme.aktif { background: #101020; color: #C0C0D0; border-color: #303050; }
+.ayarlar-sekme-ikon { width: 20px; text-align: center; color: #404060; }
+.ayarlar-icerik { flex: 1; padding: 20px; }
+.ayarlar-toast { position: fixed; top: 20px; right: 20px; background: #0C0C16; border: 1px solid #2ED573; color: #2ED573; padding: 12px 20px; border-radius: 2px; font-size: 12px; letter-spacing: 1px; animation: fadeSlideIn 0.3s ease; z-index: 999; }
+@keyframes fadeSlideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+.ayarlar-panel h2 { font-size: 13px; font-weight: 700; letter-spacing: 3px; color: #C0C0D0; margin-bottom: 20px; }
+.ayar-kart { display: flex; justify-content: space-between; align-items: center; background: #0C0C16; border: 1px solid #1A1A30; padding: 14px 16px; margin-bottom: 8px; border-radius: 2px; }
+.ayar-kart span:first-child { font-size: 12px; letter-spacing: 1px; }
+.ayar-deger { font-size: 11px; color: #808090; }
+.ayar-deger.aktif { color: #2ED573; }
+.ayar-deger.yakinda { color: #FFA502; }
+.ayar-buton { background: #1A1A30; color: #C0C0D0; border: 1px solid #303050; padding: 6px 14px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1px; cursor: pointer; border-radius: 2px; }
+.ayar-buton.kirmizi { border-color: #4A1A1A; color: #FF4757; }
+.ayar-buton.kirmizi:hover { background: #2A0A0A; }
+.cikis-buton { width: 100%; margin-top: 16px; background: none; border: 1px solid #4A1A1A; color: #FF4757; padding: 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 2px; cursor: pointer; border-radius: 2px; }
+.toggle-switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.toggle-slider { position: absolute; cursor: pointer; inset: 0; background: #1A1A30; border-radius: 24px; transition: 0.3s; }
+.toggle-slider::before { content: ''; position: absolute; height: 18px; width: 18px; left: 3px; bottom: 3px; background: #606070; border-radius: 50%; transition: 0.3s; }
+input:checked + .toggle-slider { background: #00D4FF; }
+input:checked + .toggle-slider::before { transform: translateX(20px); background: white; }
+.abonelik-plan-karti { background: #0C0C16; border: 1px solid #FFD700; padding: 20px; border-radius: 2px; text-align: center; }
+.abonelik-plan-karti h3 { color: #FFD700; }
+@media (max-width: 768px) { .ayarlar-kokpit { flex-direction: column; } .ayarlar-sidebar { width: 100%; flex-direction: row; overflow-x: auto; } }

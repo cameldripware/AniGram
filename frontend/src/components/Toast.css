@@ -1,0 +1,192 @@
+/* ============================================
+   TOAST BİLDİRİM STİLLERİ
+   Premium görünüm - Anime ruhu - Neon efektler
+   ============================================ */
+
+.toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 9999;
+  max-width: 420px;
+  width: calc(100% - 48px);
+  pointer-events: all;
+}
+
+/* Giriş animasyonu */
+.toast-entering {
+  animation: toastSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes toastSlideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Çıkış animasyonu */
+.toast-leaving {
+  animation: toastSlideOut 0.4s ease-in forwards;
+}
+
+@keyframes toastSlideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* Toast içeriği */
+.toast-content {
+  background-color: var(--ikincil-renk);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 
+              0 0 0 1px var(--toast-color, var(--vurgu-renk)) inset;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+/* Sol kenar renk çizgisi */
+.toast-content::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--toast-color, var(--vurgu-renk));
+  border-radius: 3px 0 0 3px;
+}
+
+/* İkon kapsayıcı */
+.toast-icon-wrapper {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* İkon */
+.toast-icon {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--toast-color, var(--vurgu-renk));
+  z-index: 1;
+  position: relative;
+}
+
+/* İkon etrafındaki halka */
+.toast-icon-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--toast-color, var(--vurgu-renk));
+  opacity: 0.3;
+  animation: iconRingPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconRingPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+/* Mesaj metni */
+.toast-message {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--metin-beyaz);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Kapatma butonu */
+.toast-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--metin-gri);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.toast-close:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--metin-beyaz);
+}
+
+/* İlerleme çubuğu */
+.toast-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.toast-progress-fill {
+  height: 100%;
+  background-color: var(--toast-color, var(--vurgu-renk));
+  animation: progressShrink 3.5s linear forwards;
+}
+
+@keyframes progressShrink {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* Mobil uyum */
+@media (max-width: 480px) {
+  .toast-container {
+    top: 12px;
+    right: 12px;
+    max-width: calc(100% - 24px);
+  }
+  
+  .toast-content {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+  
+  .toast-message {
+    font-size: 13px;
+  }
+}
